@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mission4Assignment</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/mine.css" />
+    <link rel="icon" href="~/img/baconicon.png" />
+</head>
+
+<body>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home Page</a>
+        <a asp-controller="Home" asp-action="Podcasts">My Podcasts</a>
+        <a asp-controller="Home" asp-action="MovieEntry">Enter a Movie!</a>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+
+
+</html>
