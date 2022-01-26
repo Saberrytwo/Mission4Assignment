@@ -19,7 +19,7 @@ namespace Mission4Assignment.Models
 
         protected override void OnModelCreating(ModelBuilder mb)  //as long as its in the chain/inherited its ok
         {
-            mb.Entity<MovieEntry>().HasData(
+            mb.Entity<MovieEntry>().HasData( //This seeds the database with some initial entries
                 new MovieEntry
                 {
                     MovieId = 1,

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mission4Assignment.Models
 {
-    public class MovieEntry
+    public class MovieEntry //This gets and sets all the variables 
     {
         [Key]
         [Required]
