@@ -8,6 +8,7 @@ namespace Mission4Assignment.Models
 {
     public class MovieEntry //This gets and sets all the variables 
     {
+        //This also has all the validation that the form asked for
         [Key]
         [Required]
         public int MovieId { get; set; }
