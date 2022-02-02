@@ -37,6 +37,7 @@ namespace Mission4Assignment.Controllers
         [HttpGet]
         public IActionResult MovieEntry()
         {
+            ViewBag.Categories = _blahContext.Categories.ToList();
 
             return View();
         }
