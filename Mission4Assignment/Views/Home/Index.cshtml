@@ -40,8 +40,8 @@
                 <td>@x.Edited</td>
                 <td>@x.LentTo</td>
                 <td>@x.Notes</td>
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-AppId="@x.MovieId">Edit</a></td> <!--Uses the id endpoint we have in the startup.cs file-->
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-AppId="@x.MovieId">Delete</a></td>
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-MovieId="@x.MovieId">Edit</a></td> <!--Uses the id endpoint we have in the startup.cs file-->
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-MovieId="@x.MovieId">Delete</a></td>
             </tr>
         }
 

@@ -8,7 +8,7 @@ using Mission4Assignment.Models;
 namespace Mission4Assignment.Migrations
 {
     [DbContext(typeof(MovieEntryContext))]
-    [Migration("20220202165623_Initial")]
+    [Migration("20220202171150_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

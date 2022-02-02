@@ -37,7 +37,8 @@ namespace Mission4Assignment.Controllers
         [HttpGet]
         public IActionResult MovieEntry()
         {
-            ViewBag.Categories = _blahContext.Categories.ToList();
+            ViewBag.Categories = _blahContext.Categories.ToList(); //ViewBag is automatically passed around, so we don't have to send it to the view
+
 
             return View();
         }
@@ -56,6 +57,25 @@ namespace Mission4Assignment.Controllers
                 return View(en);
             }
             
+        }
+        [HttpGet]
+        public IActionResult Edit(int MovieId) //Has to match the name of the thing we're passing through the route so it knows what to grab
+        {
+            ViewBag.Majors = _blahContext.Categories.ToList();
+
+            var entry = _blahContext.Responses.Single(x => x.MovieId == MovieId);
+
+            return View("MovieEntry", entry);
+
+        }
+        [HttpPost]
+        public IActionResult Edit(MovieEntry blah) //Doesn't matter what it's called
+        {
+
+            _blahContext.Update(blah);
+            _blahContext.SaveChanges();
+
+            return RedirectToAction("Index"); //Now going up to the waitlist action, and running through that code
         }
     }
 }
