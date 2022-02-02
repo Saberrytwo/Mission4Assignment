@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mission4Assignment.Models
 {
-    public class Category
+    public class Category //The Category Table, so that we don't have as much redundancy
     {
         [Key]
         [Required]

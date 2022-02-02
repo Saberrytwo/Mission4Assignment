@@ -14,7 +14,7 @@
 </div>
 
 <h2>The Collection in All of its Glory</h2>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped"> <!--This class uses bootstrap to give the table a more professional look-->
     <thead class="font-weight-bold">
         <tr>
             <td>Category</td>
@@ -29,10 +29,10 @@
 
     </thead>
     <tbody>
-        @foreach (var x in Model)
+        @foreach (var x in Model) //Goes through each MovieEntry in the model, and displays the information for it
         {
             <tr>
-                <td>@x.CategoryId</td>
+                <td>@x.Category.CategoryName</td>
                 <td>@x.Title</td>
                 <td>@x.Year</td>
                 <td>@x.Director</td>
@@ -40,7 +40,7 @@
                 <td>@x.Edited</td>
                 <td>@x.LentTo</td>
                 <td>@x.Notes</td>
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-MovieId="@x.MovieId">Edit</a></td> <!--Uses the id endpoint we have in the startup.cs file-->
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-MovieId="@x.MovieId">Edit</a></td> <!--Passes in the MovieId so we can then grab that entry from the database-->
                 <td><a asp-controller="Home" asp-action="Delete" asp-route-MovieId="@x.MovieId">Delete</a></td>
             </tr>
         }

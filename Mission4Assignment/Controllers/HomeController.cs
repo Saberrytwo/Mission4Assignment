@@ -25,6 +25,8 @@ namespace Mission4Assignment.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Categories = _blahContext.Categories.ToList(); //ViewBag is automatically passed around, so we don't have to send it to the view
+
             var entries = _blahContext.Responses.OrderBy(x => x.Year).ToList();
             return View(entries);
         }
@@ -58,8 +60,8 @@ namespace Mission4Assignment.Controllers
             }
             
         }
-        [HttpGet]
-        public IActionResult Edit(int MovieId) //Has to match the name of the thing we're passing through the route so it knows what to grab
+        [HttpGet] //This lets us edit the movie entry, and then save the changes with the Post Edit method below
+        public IActionResult Edit(int MovieId) //MovieId has to match the name of the thing we're passing through the route so it knows what to grab
         {
             ViewBag.Categories = _blahContext.Categories.ToList();
 
@@ -69,7 +71,7 @@ namespace Mission4Assignment.Controllers
 
         }
         [HttpPost]
-        public IActionResult Edit(MovieEntry blah) //Doesn't matter what it's called
+        public IActionResult Edit(MovieEntry blah) //This saves any edited changes from above
         {
 
             _blahContext.Update(blah);
@@ -78,14 +80,14 @@ namespace Mission4Assignment.Controllers
             return RedirectToAction("Index"); //Now going up to the waitlist action, and running through that code
         }
         [HttpGet]
-        public IActionResult Delete (int MovieId)
+        public IActionResult Delete (int MovieId) //Pulls up the movie record from above
         {
             var entry = _blahContext.Responses.Single(x => x.MovieId == MovieId);
             return View(entry);
 
         }
         [HttpPost]
-        public IActionResult Delete (MovieEntry mv)
+        public IActionResult Delete (MovieEntry mv) //Actually deletes and saves the changes from above
         {
             _blahContext.Responses.Remove(mv);
             _blahContext.SaveChanges();

@@ -6,7 +6,7 @@
 <h2>Confirm Deletion</h2>
 <h2>Are you sure you want to delete the record for @Model.Title by @Model.Director </h2>
 
-<form method="post" asp-action="Delete">
+<form method="post" asp-action="Delete"> <!--Delete confirmation page, where it ensures that they want to delete the record, and then lets them submit-->
     <button type="submit">Delete</button>
     <a asp-controller="Home" asp-action="Delete" class="btn btn-primary">Cancel</a>
     <input type="hidden" asp-for="MovieId" />

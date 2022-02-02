@@ -6,14 +6,14 @@
 <h1>Movie Entry Form</h1>
 
 <div>
-    <form method="post"> <!--Form for submitting new movies, including dropdown menus/ yes&no for ratings and edited categories-->
+    <form method="post"> <!--Form for submitting new movies, including dropdown menus/ yes&no for CATEGORIES, ratings and edited categories-->
     <!--I also did the validation in the html inputs as well as the model-->
         <label asp-for="CategoryId">Category: </label>
         <select asp-for="CategoryId">
             <option value="">Select a Category</option>
             @foreach (Category c in ViewBag.Categories)
             {
-                <option value="@c.CategoryId">@c.CategoryName</option>
+                <option value="@c.CategoryId">@c.CategoryName</option> //This way they can pick between the Category names, and the ID is passed in
             }    
             
         </select><br />
