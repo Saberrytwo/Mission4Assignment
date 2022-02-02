@@ -48,6 +48,7 @@ namespace Mission4Assignment.Controllers
         [HttpPost]
         public IActionResult MovieEntry(MovieEntry en)
         { //Need the below so that it will save all the changes to the database. I wanted to display the database, but the TAs said it was too far ahead
+            ViewBag.Categories = _blahContext.Categories.ToList();
             if (ModelState.IsValid)
             {
                 _blahContext.Add(en);

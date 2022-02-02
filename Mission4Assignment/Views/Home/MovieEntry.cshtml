@@ -38,9 +38,8 @@
 
         <label asp-for="Edited">Has This Movie Been Edited? </label>
         <select asp-for="Edited">
-            <option value="">Pick if it's been edited</option>
             <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value="false" selected>No</option>
         </select><br />
 
         <label asp-for="LentTo">This Movie Was Lent To: </label>
