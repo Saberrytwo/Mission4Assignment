@@ -13,7 +13,7 @@ namespace Mission4Assignment.Models
         [Required]
         public int MovieId { get; set; }
         [Required]
-        public int Category { get; set; } 
+        public int CategoryId { get; set; } 
         [Required]
         public string Title { get; set; }
         [Required]
