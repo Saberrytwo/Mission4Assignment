@@ -61,7 +61,7 @@ namespace Mission4Assignment.Controllers
         [HttpGet]
         public IActionResult Edit(int MovieId) //Has to match the name of the thing we're passing through the route so it knows what to grab
         {
-            ViewBag.Majors = _blahContext.Categories.ToList();
+            ViewBag.Categories = _blahContext.Categories.ToList();
 
             var entry = _blahContext.Responses.Single(x => x.MovieId == MovieId);
 
@@ -76,6 +76,20 @@ namespace Mission4Assignment.Controllers
             _blahContext.SaveChanges();
 
             return RedirectToAction("Index"); //Now going up to the waitlist action, and running through that code
+        }
+        [HttpGet]
+        public IActionResult Delete (int MovieId)
+        {
+            var entry = _blahContext.Responses.Single(x => x.MovieId == MovieId);
+            return View(entry);
+
+        }
+        [HttpPost]
+        public IActionResult Delete (MovieEntry mv)
+        {
+            _blahContext.Responses.Remove(mv);
+            _blahContext.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
