@@ -25,7 +25,8 @@ namespace Mission4Assignment.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var entries = _blahContext.Responses.OrderBy(x => x.Year).ToList();
+            return View(entries);
         }
 
         public IActionResult Podcasts()
@@ -54,16 +55,6 @@ namespace Mission4Assignment.Controllers
                 return View(en);
             }
             
-        }
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "The Joel Hilton Film Collection";
 } <!--Title will change for each page-->
+@model List<MovieEntry>
 
 
 <div class="text-center">
@@ -11,3 +12,38 @@
         My Name is Joel Hilton, and I am the slightly less cool younger brother of Professor Spencer Hilton.
     </p>
 </div>
+
+<h2>The Collection in All of its Glory</h2>
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Category</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited?</td>
+            <td>LentTo</td>
+            <td>Notes</td>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Category</td>
+                <td>@x.Title</td>
+                <td>@x.Year</td>
+                <td>@x.Director</td>
+                <td>@x.Rating</td>
+                <td>@x.Edited</td>
+                <td>@x.LentTo</td>
+                <td>@x.Notes</td>
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-AppId="@x.MovieId">Edit</a></td> <!--Uses the id endpoint we have in the startup.cs file-->
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-AppId="@x.MovieId">Delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
