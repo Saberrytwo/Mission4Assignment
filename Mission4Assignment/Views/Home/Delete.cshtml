@@ -8,6 +8,6 @@
 
 <form method="post" asp-action="Delete"> <!--Delete confirmation page, where it ensures that they want to delete the record, and then lets them submit-->
     <button type="submit">Delete</button>
-    <a asp-controller="Home" asp-action="Delete" class="btn btn-primary">Cancel</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
     <input type="hidden" asp-for="MovieId" />
 </form>
